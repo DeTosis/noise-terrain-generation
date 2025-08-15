@@ -1,6 +1,7 @@
 # NosieToPBM
 
 A lightweight tool for generating and visualizing procedural noise maps, built with [FastNoiseLite](https://github.com/Auburn/FastNoiseLite).
+_This project targets only Windows._ 
 
 ## Installation
 
@@ -10,38 +11,42 @@ Clone repository:
 git clone https://github.com/DeTosis/noise-terrain-generation
 ```
 
-_This project targets Windows._ 
-
 Currently, the project can only be built using the provided .sln file located in the project root directory.
 
 ## Usage
+
+* Build project with Visual Studio
+* Build result will be in `"projectRoot"/_build` directory
+
+Now you can run `NosieToPBM.exe` file directly or specify arguments to customise your nosie 
+
+Console arguments:
+~~~
+Output Image Settings:
+-h			| set output image height
+-w			| set output image width
+-depth		| range for a gradient to be applied
+-o			| output file path
+
+Noise Settings:
+-seed		| sets noise seed  
+-lac		| sets noise lacunarity  
+-pers		| sets noise persistence  
+-scale		| sets noise scale  
+-freq		| sets noise frequency  
+-oct		| sets noise octaves count  
+-ridge		| enables noise ridge  
+-pow		| sets ridge power, does not work if -ridge is not used  
+~~~
 
 The program outputs .pgm files in the [Netpbm](https://en.wikipedia.org/wiki/Netpbm) format
 
 These can be viewed in many editors — Visual Studio Code has an extension for it.
 
-> _Console arguments are not yet implemented; noise settings must be changed directly in the code._
+## Noise Generation Result
 
-Settings are defined in structure `NosieSettings`
-```cpp
-struct NosieSettings
-{
-	float lacunarity;
-	float persistance;
+<img width="520" height="520" alt="image_2025-08-16_03-55-00" src="https://github.com/user-attachments/assets/ea2145af-af83-46c3-9979-287e170f1578" />
 
-	float noiseScale;
-	float baseFrequency;
-	float octaves;
-
-	float maxHeight;
-	bool  ridge;
-	int	  ridgePower;
-};
-```
-
----
-## Noise Generation Result [.pbm]
-Settings used: `NosieSettings def{ 2.1f, 0.48f, 4.4f, 0.01f, 8, maxHeight / 2, true, 8 };`
-
-<img width="521" height="520" alt="ex" src="https://github.com/user-attachments/assets/57761a87-6b94-4c0c-b6f3-262946aa44cf" />
-
+>Settings used to generate this nosie:
+>
+>`NosieToPBM.exe -lac 2.1 -pers 0.48 -scale 4.4 -freq 0.01 -oct 8 -depth 128 -ridge -pow 8 -h 512 -w 512`
