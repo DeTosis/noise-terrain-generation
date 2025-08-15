@@ -13,6 +13,7 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 *.pgm
+*.pbm
 
 # Mono auto generated files
 mono_crash.*
