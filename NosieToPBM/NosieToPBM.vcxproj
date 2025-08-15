@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\ImageSettings.h" />
     <ClCompile Include="src\Source.cpp" />
   </ItemGroup>
   <ItemGroup>
