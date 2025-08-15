@@ -1,6 +1,7 @@
 # NosieToPBM
 
 A lightweight tool for generating and visualizing procedural noise maps, built with [FastNoiseLite](https://github.com/Auburn/FastNoiseLite).
+
 _This project targets only Windows._ 
 
 ## Installation
